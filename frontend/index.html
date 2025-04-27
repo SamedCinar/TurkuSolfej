@@ -17,7 +17,7 @@
             </div>
             <ul>
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
-                <li><a href="#turkuler">Türküler</a></li>
+                <li><a href="turkuler.html">Türküler</a></li>
                 <li><a href="#notalar">Notalar</a></li>
                 <li><a href="#solfej">Solfej</a></li>
                 <li><a href="#profil">Profil</a></li>
@@ -31,16 +31,23 @@
                 <h1>Türkü Solfej'e Hoş Geldiniz</h1>
                 <p>Bağlama çalmayı öğrenmek için en iyi platform</p>
                 <div class="hero-buttons">
-                    <a href="#turkuler" class="btn btn-primary">Türküleri Keşfet</a>
+                    <a href="turkuler.html" class="btn btn-primary">Türküleri Keşfet</a>
                     <a href="#notalar" class="btn btn-secondary">Notaları İncele</a>
                 </div>
             </div>
         </section>
 
-        <section id="turkuler">
-            <h2>Popüler Türküler</h2>
-            <div class="turkuler-grid">
-                <!-- Türkü kartları buraya eklenecek -->
+        <section class="turkuler-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Popüler Türküler</h2>
+                <div class="row">
+                    <div class="col-12 text-center mb-4">
+                        <a href="turkuler.html" class="btn btn-primary">Tüm Türküleri Gör</a>
+                    </div>
+                </div>
+                <div class="row" id="populerTurkuler">
+                    <!-- Popüler türküler JavaScript ile buraya eklenecek -->
+                </div>
             </div>
         </section>
 
@@ -65,5 +72,42 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    // Popüler türküleri yükle
+    async function loadPopulerTurkuler() {
+        try {
+            const response = await fetch('http://localhost:3000/api/turkuler');
+            const turkuler = await response.json();
+            
+            const populerTurkuler = document.getElementById('populerTurkuler');
+            populerTurkuler.innerHTML = '';
+
+            turkuler.forEach(turku => {
+                // Sadece "Kendine İyi Bak" türküsünü göster
+                if (turku.title && turku.title.toLowerCase().includes('kendine iyi bak')) {
+                    const turkuCard = `
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="${turku.imageUrl || 'images/default-turku.jpg'}" class="card-img-top" alt="${turku.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${turku.title}</h5>
+                                    <p class="card-text">${turku.artist}</p>
+                                    <p class="card-text"><small class="text-muted">Bölge: ${turku.region}</small></p>
+                                    <a href="turkuler.html" class="btn btn-primary">Detaylar</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    populerTurkuler.innerHTML += turkuCard;
+                }
+            });
+        } catch (error) {
+            console.error('Popüler türküler yüklenirken hata oluştu:', error);
+        }
+    }
+
+    // Sayfa yüklendiğinde popüler türküleri yükle
+    document.addEventListener('DOMContentLoaded', loadPopulerTurkuler);
+    </script>
 </body>
 </html> 

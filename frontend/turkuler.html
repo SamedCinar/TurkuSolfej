@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türküler - Türkü Solfej</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Türkü Solfej</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="turkuler.html">Türküler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="notalar.html">Notalar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="videolar.html">Videolar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Türküler Section -->
+    <section class="turkuler-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Türküler</h2>
+            
+            <!-- Arama Kutusu -->
+            <div class="search-box mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Türkü ara...">
+                    <button class="btn btn-primary" type="button" id="searchButton">Ara</button>
+                </div>
+            </div>
+
+            <!-- Türkü Listesi -->
+            <div class="row" id="turkulerList">
+                <!-- Türküler JavaScript ile buraya eklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Türkü Solfej</h5>
+                    <p>Türk halk müziği öğrenmek için en iyi platform</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Hızlı Bağlantılar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="turkuler.html">Türküler</a></li>
+                        <li><a href="notalar.html">Notalar</a></li>
+                        <li><a href="videolar.html">Videolar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: info@turksolfej.com</li>
+                        <li>Tel: +90 555 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Türküleri yükle
+        async function loadTurkuler() {
+            try {
+                const response = await fetch('http://localhost:3000/api/turkuler');
+                const turkuler = await response.json();
+                
+                const turkulerList = document.getElementById('turkulerList');
+                turkulerList.innerHTML = '';
+
+                turkuler.forEach(turku => {
+                    if (turku.id === 16 || turku.id === 18) {
+                        const turkuCard = `
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title toggle-nota" style="cursor:pointer;">
+                                            ${turku.title}
+                                        </h5>
+                                        <div class="nota-container" style="display:none;">
+                                            <h6>Notalar:</h6>
+                                            <pre class="nota-text">${turku.notaUrl}</pre>
+                                            ${turku.videoUrl ? `
+                                            <div class="video-container" style="margin-top:15px;">
+                                                <iframe width="100%" height="250" src="${turku.videoUrl.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        turkulerList.innerHTML += turkuCard;
+                    }
+                });
+
+                // Akordeon (açılır/gizlenir) fonksiyonu
+                document.querySelectorAll('.toggle-nota').forEach(function(title) {
+                    title.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const notaDiv = this.closest('.card-body').querySelector('.nota-container');
+                        if (notaDiv.style.display === 'none') {
+                            notaDiv.style.display = 'block';
+                        } else {
+                            notaDiv.style.display = 'none';
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('Türküler yüklenirken hata oluştu:', error);
+                document.getElementById('turkulerList').innerHTML = '<p class="text-danger">Türküler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>';
+            }
+        }
+
+        // Arama fonksiyonu
+        async function searchTurkuler(query) {
+            try {
+                const response = await fetch(`https://localhost:5001/api/turkuler/search?q=${encodeURIComponent(query)}`);
+                const turkuler = await response.json();
+                
+                const turkulerList = document.getElementById('turkulerList');
+                turkulerList.innerHTML = '';
+
+                turkuler.forEach(turku => {
+                    const turkuCard = `
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="${turku.imageUrl || 'images/default-turku.jpg'}" class="card-img-top" alt="${turku.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${turku.title}</h5>
+                                    <p class="card-text">${turku.artist}</p>
+                                    <p class="card-text"><small class="text-muted">Bölge: ${turku.region}</small></p>
+                                    <a href="turku-detay.html?id=${turku.id}" class="btn btn-primary">Detaylar</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    turkulerList.innerHTML += turkuCard;
+                });
+            } catch (error) {
+                console.error('Arama yapılırken hata oluştu:', error);
+            }
+        }
+
+        // Sayfa yüklendiğinde türküleri yükle
+        document.addEventListener('DOMContentLoaded', loadTurkuler);
+
+        // Arama butonu tıklandığında
+        document.getElementById('searchButton').addEventListener('click', () => {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                searchTurkuler(query);
+            } else {
+                loadTurkuler();
+            }
+        });
+
+        // Enter tuşuna basıldığında
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = document.getElementById('searchInput').value;
+                if (query.trim()) {
+                    searchTurkuler(query);
+                } else {
+                    loadTurkuler();
+                }
+            }
+        });
+
+        // URL'den türkü ID'sini al
+        const urlParams = new URLSearchParams(window.location.search);
+        const turkuId = urlParams.get('id');
+
+        // Türkü detaylarını yükle
+        async function loadTurkuDetay() {
+            try {
+                const response = await fetch(`https://localhost:5001/api/turkuler/${turkuId}`);
+                const turku = await response.json();
+                
+                // Sayfa başlığını güncelle
+                document.title = `${turku.title} - Türkü Solfej`;
+                
+                // Türkü başlığını güncelle
+                document.querySelector('.card-title').textContent = turku.title;
+                
+                // Türkü bilgilerini güncelle
+                document.querySelector('.turku-info').innerHTML = `
+                    <p class="text-muted">Sanatçı: ${turku.artist}</p>
+                    <p class="text-muted">Bölge: ${turku.region}</p>
+                `;
+
+                // Notaları yükle
+                if (turku.notaUrl) {
+                    const notaResponse = await fetch(`https://localhost:5001/api/turkuler/${turkuId}/nota`);
+                    const notaText = await notaResponse.text();
+                    document.querySelector('.nota-text').textContent = notaText;
+                }
+            } catch (error) {
+                console.error('Türkü detayları yüklenirken hata oluştu:', error);
+            }
+        }
+
+        // Sayfa yüklendiğinde türkü detaylarını yükle
+        document.addEventListener('DOMContentLoaded', loadTurkuDetay);
+    </script>
+</body>
+</html> 

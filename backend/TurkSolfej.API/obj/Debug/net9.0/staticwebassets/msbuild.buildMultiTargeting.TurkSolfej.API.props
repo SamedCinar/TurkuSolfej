@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TurkSolfej.API.props" />
+</Project>

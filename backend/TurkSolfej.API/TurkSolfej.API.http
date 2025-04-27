@@ -1,0 +1,21 @@
+@TurkSolfej.API_HostAddress = http://localhost:5236
+
+GET {{TurkSolfej.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Yeni Türkü Ekle
+POST http://localhost:5000/api/Turkuler
+Content-Type: application/json
+
+{
+  "title": "Kendine İyi Bak",
+  "artist": "Anonim",
+  "region": "Anadolu",
+  "description": "Geleneksel Türk Halk Müziği",
+  "notaUrl": "kendine-iyi-bak-nota",
+  "tags": ["türkü", "halk müziği", "anonim"],
+  "viewCount": 0,
+  "likeCount": 0
+}
+
+###

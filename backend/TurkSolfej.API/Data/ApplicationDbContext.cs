@@ -20,14 +20,14 @@ namespace TurkSolfej.API.Data
             modelBuilder.Entity<Turku>()
                 .Property(t => t.Tags)
                 .HasConversion(
-                    v => string.Join(',', v),
+                    v => string.Join(',', v ?? new List<string>()),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                 );
 
             modelBuilder.Entity<User>()
                 .Property(u => u.FavoriteTurkuler)
                 .HasConversion(
-                    v => string.Join(',', v),
+                    v => string.Join(',', v ?? new List<int>()),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
                         .Select(int.Parse)
                         .ToList()
@@ -36,7 +36,7 @@ namespace TurkSolfej.API.Data
             modelBuilder.Entity<User>()
                 .Property(u => u.Playlists)
                 .HasConversion(
-                    v => string.Join(',', v),
+                    v => string.Join(',', v ?? new List<int>()),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
                         .Select(int.Parse)
                         .ToList()
