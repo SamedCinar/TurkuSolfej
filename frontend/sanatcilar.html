@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanatçılar - Türkü Solfej</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/kısasapfoto.webp" alt="Türkü Solfej Logo" class="site-logo">
+                    <span class="logo-text">Türkü Solfej</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="turkuler.html">Türküler</a></li>
+                <li><a href="videolar.html">Videolar</a></li>
+                <li><a href="sanatcilar.html">Sanatçılar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sanatçılar Section -->
+    <section class="turkuler-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Sanatçılar</h2>
+            <!-- Arama Kutusu -->
+            <div class="search-box mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Sanatçı ara...">
+                    <button class="btn btn-primary" type="button" id="searchButton">Ara</button>
+                </div>
+            </div>
+            <!-- Sanatçı Listesi -->
+            <div class="row" id="sanatcilarList">
+                <!-- Sanatçılar JavaScript ile buraya eklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Türkü Solfej. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+    // Örnek sanatçı verisi (API'den çekmek için kod eklenebilir)
+    const sanatcilar = [
+        { ad: "Neşet Ertaş", resim: "images/nesetfoto.jpg" },
+        { ad: "Aşık Veysel", resim: "images/veyselfoto.png" },
+        { ad: "Ali Ekber Çiçek", resim: "images/aliekberfoto.jpg" },
+        { ad: "Musa Eroğlu", resim: "images/musaeroglufoto.jpg" },
+        { ad: "Arif Sağ", resim: "images/arifsagfoto.jpg" },
+        { ad: "Engin Nurşani", resim: "images/enginnursanifoto.jpeg" },
+        { ad: "Erdal Erzincan", resim: "images/erdalerzincanfoto.jpeg" },
+        { ad: "Mahzuni Şerif", resim: "images/mahzunifoto.jpg" },
+        { ad: "Muhlis Akarsu", resim: "images/akarsufoto.png" },
+        { ad: "Mehmet Erenler", resim: "images/erenlerfoto.jpg" }
+    ];
+
+    function sanatcilariGoster(liste) {
+        const container = document.getElementById('sanatcilarList');
+        container.innerHTML = '';
+        liste.forEach(sanatci => {
+            if (
+                sanatci.ad === "Neşet Ertaş"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Neşet%20Ertaş\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Aşık Veysel"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Aşık%20Veysel\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Ali Ekber Çiçek"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Ali%20Ekber%20Çiçek\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Musa Eroğlu"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Musa%20Eroğlu\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Arif Sağ"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Arif%20Sağ\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Engin Nurşani"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Engin%20Nurşani\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Erdal Erzincan"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Erdal%20Erzincan\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Mahzuni Şerif"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Mahzuni%20Şerif\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Muhlis Akarsu"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Muhlis%20Akarsu\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Mehmet Erenler"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Mehmet%20Erenler\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else {
+                container.innerHTML += `
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="${sanatci.resim}" class="card-img-top" alt="${sanatci.ad}">
+                            <div class="card-body">
+                                <h5 class="card-title">${sanatci.ad}</h5>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    }
+
+    // Sayfa yüklendiğinde sanatçıları göster
+    document.addEventListener('DOMContentLoaded', () => sanatcilariGoster(sanatcilar));
+
+    // Arama butonu tıklandığında
+    document.getElementById('searchButton').addEventListener('click', () => {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtreli = sanatcilar.filter(s => s.ad.toLowerCase().includes(query));
+        sanatcilariGoster(filtreli);
+    });
+    </script>
+</body>
+</html> 

@@ -9,11 +9,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #fff;
 }
 
 /* Header ve Navigasyon */
 header {
-    background-color: #2c3e50;
+    background-color: #1a2634;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -34,7 +35,10 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 .logo a {
@@ -51,7 +55,7 @@ nav {
 }
 
 .logo-text {
-    color: #fff;
+    color: #ff6b00;
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
@@ -76,6 +80,7 @@ nav ul li a:hover {
 /* Ana İçerik */
 main {
     margin-top: 80px;
+    background-color: #fff;
 }
 
 .hero {
@@ -94,7 +99,7 @@ main {
 }
 
 .hero-content {
-    background-color: rgba(44, 62, 80, 0.8);
+    background-color: rgba(26, 38, 52, 0.8);
     padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
@@ -163,12 +168,13 @@ section {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #fff;
 }
 
 h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #2c3e50;
+    color: #1a2634;
 }
 
 /* Grid Yapıları */
@@ -210,7 +216,7 @@ h2 {
 
 /* Footer */
 footer {
-    background-color: #2c3e50;
+    background-color: #1a2634;
     color: #fff;
     text-align: center;
     padding: 1rem;
@@ -305,4 +311,56 @@ footer {
     background-color: #2980b9;
     border-color: #2980b9;
     transform: translateY(-2px);
+} 
+
+.sanatcilar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.sanatci {
+    text-align: center;
+}
+
+.sanatci img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.sanatci p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.populer-turku-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.populer-turku-item {
+    font-weight: 600;
+    color: #1a2634;
+    letter-spacing: 1px;
+    transition: color 0.2s, transform 0.2s;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px 12px;
+}
+
+.populer-turku-item:hover {
+    color: #ff6b00;
+    background: #fff3e6;
+    transform: scale(1.08);
 } 

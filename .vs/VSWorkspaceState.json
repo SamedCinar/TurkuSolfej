@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\frontend"
+    "\\frontend",
+    "\\frontend\\css",
+    "\\frontend\\images"
   ],
   "PreviewInSolutionExplorer": false
 }

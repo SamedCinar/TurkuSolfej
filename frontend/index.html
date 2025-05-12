@@ -8,19 +8,18 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav style="display: flex; align-items: center; justify-content: space-between;">
             <div class="logo">
                 <a href="index.html">
-                    <img src="./images/sazlogo.png" alt="Türkü Solfej Logo" class="site-logo">
+                    <img src="./images/kısasapfoto.webp" alt="Türkü Solfej Logo" class="site-logo">
                     <span class="logo-text">Türkü Solfej</span>
                 </a>
             </div>
-            <ul>
+            <ul style="display: flex; gap: 32px; align-items: center; margin: 0;">
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="turkuler.html">Türküler</a></li>
-                <li><a href="#notalar">Notalar</a></li>
-                <li><a href="#solfej">Solfej</a></li>
-                <li><a href="#profil">Profil</a></li>
+                <li><a href="videolar.html">Videolar</a></li>
+                <li><a href="sanatcilar.html">Sanatçılar</a></li>
             </ul>
         </nav>
     </header>
@@ -32,7 +31,6 @@
                 <p>Bağlama çalmayı öğrenmek için en iyi platform</p>
                 <div class="hero-buttons">
                     <a href="turkuler.html" class="btn btn-primary">Türküleri Keşfet</a>
-                    <a href="#notalar" class="btn btn-secondary">Notaları İncele</a>
                 </div>
             </div>
         </section>
@@ -40,22 +38,19 @@
         <section class="turkuler-section py-5">
             <div class="container">
                 <h2 class="text-center mb-4">Popüler Türküler</h2>
-                <div class="row">
-                    <div class="col-12 text-center mb-4">
-                        <a href="turkuler.html" class="btn btn-primary">Tüm Türküleri Gör</a>
-                    </div>
+                <div style="width:100%; text-align:center; margin-bottom:32px;">
+                    <a href="turkuler.html" class="btn btn-primary" style="min-width:260px; font-weight:bold; font-size:1.2rem;">Tüm Türküleri Gör</a>
                 </div>
+                <ul class="populer-turku-list">
+                    <li class="populer-turku-item"><a href="turku.html?id=25"style="color:inherit;text-decoration:none;">Uzun İnce Bir Yoldayım</a></li>
+                    <li class="populer-turku-item"><a href="turku.html?id=22" style="color:inherit;text-decoration:none;">Saçlarını Taramışsın</a></li>
+                    <li class="populer-turku-item"><a href="turku.html?id=19" style="color:inherit;text-decoration:none;">Urfa'nın Etrafı</a></li>
+                    <li class="populer-turku-item"><a href="turku.html?id=27" style="color:inherit;text-decoration:none;">Halil İbrahim</a></li>
+                    <li class="populer-turku-item"><a href="turku.html?id=18" style="color:inherit;text-decoration:none;">Kara Tren</a></li>
+                </ul>
                 <div class="row" id="populerTurkuler">
                     <!-- Popüler türküler JavaScript ile buraya eklenecek -->
                 </div>
-            </div>
-        </section>
-
-        <section id="notalar">
-            <h2>Nota Arşivi</h2>
-            <div class="nota-arama">
-                <input type="text" placeholder="Türkü ara...">
-                <button>Ara</button>
             </div>
         </section>
 
@@ -63,6 +58,52 @@
             <h2>Solfej Videoları</h2>
             <div class="video-grid">
                 <!-- Solfej videoları buraya eklenecek -->
+            </div>
+        </section>
+
+        <section id="sanatcilar">
+            <h2>Sanatçılar</h2>
+            <div class="sanatcilar-grid" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: center; margin-top: 32px;">
+                <div class="sanatci">
+                    <img src="images/nesetfoto.jpg" alt="Neşet Ertaş" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Neşet Ertaş</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/veyselfoto.png" alt="Aşık Veysel" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Aşık Veysel</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/erdalerzincanfoto.jpeg" alt="Erdal Erzincan" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Erdal Erzincan</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/mahzunifoto.jpg" alt="Mahzuni Şerif" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Mahzuni Şerif</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/aliekberfoto.jpg" alt="Ali Ekber Çiçek" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Ali Ekber Çiçek</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/musaeroglufoto.jpg" alt="Musa Eroğlu" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Musa Eroğlu</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/arifsagfoto.jpg" alt="Arif Sağ" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Arif Sağ</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/enginnursanifoto.jpeg" alt="Engin Nurşani" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Engin Nurşani</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/akarsufoto.png" alt="Muhlis Akarsu" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Muhlis Akarsu</p>
+                </div>
+                <div class="sanatci">
+                    <img src="images/erenlerfoto.jpg" alt="Mehmet Erenler" style="width: 160px; height: 160px; object-fit: cover; border-radius: 16px;">
+                    <p>Mehmet Erenler</p>
+                </div>
             </div>
         </section>
     </main>

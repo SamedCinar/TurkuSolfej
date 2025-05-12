@@ -25,10 +25,10 @@
                             <a class="nav-link active" href="turkuler.html">Türküler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="notalar.html">Notalar</a>
+                            <a class="nav-link" href="videolar.html">Videolar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="videolar.html">Videolar</a>
+                            <a class="nav-link" href="sanatcilar.html">Sanatçılar</a>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
                     <ul class="list-unstyled">
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="turkuler.html">Türküler</a></li>
-                        <li><a href="notalar.html">Notalar</a></li>
+                        
                         <li><a href="videolar.html">Videolar</a></li>
                     </ul>
                 </div>
@@ -96,20 +96,26 @@
                 turkulerList.innerHTML = '';
 
                 turkuler.forEach(turku => {
-                    if (turku.id === 16 || turku.id === 18) {
+                    if (turku.id === 16 || turku.id === 18 || turku.id === 19 || turku.id === 21 || turku.id === 22 || turku.id === 25 || turku.id === 26 || turku.id === 27 || turku.id === 28 || turku.id === 29) {
+                        // Türkü başlığından id oluştur
+                        const turkuId = turku.title.toLowerCase().replace(/[^a-zçğıöşü0-9\s-]/g, '').replace(/\s+/g, '-');
                         const turkuCard = `
-                            <div class="col-md-6 mb-4">
+                            <div class="mb-4">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h5 class="card-title toggle-nota" style="cursor:pointer;">
-                                            ${turku.title}
-                                        </h5>
+                                        <a href="turku.html?id=${turku.id}" style="text-decoration:none; color:inherit;">
+                                            <h5 class="card-title" id="${turkuId}" style="cursor:pointer;">
+                                                ${turku.title}
+                                            </h5>
+                                        </a>
                                         <div class="nota-container" style="display:none;">
+                                            <div class="nota-text-block">
                                             <h6>Notalar:</h6>
                                             <pre class="nota-text">${turku.notaUrl}</pre>
+                                            </div>
                                             ${turku.videoUrl ? `
-                                            <div class="video-container" style="margin-top:15px;">
-                                                <iframe width="100%" height="250" src="${turku.videoUrl.replace('watch?v=', 'embed/')}" frameborder="0" allowfullscreen></iframe>
+                                            <div class="video-container">
+                                                <iframe width="100%" height="250" src="${turku.videoUrl.replace('watch?v=','embed/')}" frameborder="0" allowfullscreen></iframe>
                                             </div>
                                             ` : ''}
                                         </div>
@@ -150,7 +156,7 @@
 
                 turkuler.forEach(turku => {
                     const turkuCard = `
-                        <div class="col-md-4 mb-4">
+                        <div class="mb-4">
                             <div class="card h-100">
                                 <img src="${turku.imageUrl || 'images/default-turku.jpg'}" class="card-img-top" alt="${turku.title}">
                                 <div class="card-body">

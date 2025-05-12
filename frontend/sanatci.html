@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanatçı Detay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/kısasapfoto.webp" alt="Türkü Solfej Logo" class="site-logo">
+                    <span class="logo-text">Türkü Solfej</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="turkuler.html">Türküler</a></li>
+                <li><a href="#solfej">Solfej</a></li>
+                <li><a href="sanatcilar.html">Sanatçılar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="margin-top:100px;">
+        <section class="turkuler-section py-5">
+            <div class="container" id="sanatciDetay">
+                <h2 id="sanatciAdi">Sanatçı Adı</h2>
+                <img id="sanatciResim" src="" alt="Sanatçı Fotoğrafı" style="max-width:220px; display:block; margin:24px auto;">
+                <div id="sanatciBilgi" style="text-align:center; font-size:1.1rem; color:#333;">Buraya sanatçı hakkında bilgiler ekleyebilirsiniz.</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Türkü Solfej. Tüm hakları saklıdır.</p>
+    </footer>
+    <script>
+    // URL'den sanatçı adını al
+    const urlParams = new URLSearchParams(window.location.search);
+    const ad = urlParams.get('ad');
+    if(ad) {
+        document.getElementById('sanatciAdi').textContent = ad;
+        // Neşet Ertaş için detay
+        if(ad === 'Neşet Ertaş') {
+            document.getElementById('sanatciResim').src = 'images/nesetfoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Neşet Ertaş, 1938 yılında Kırşehir'in Kırtıllar köyünde doğmuş, Türk halk müziğinin ve bozlak geleneğinin en önemli temsilcilerinden biridir. Babası, ünlü halk ozanı Muharrem Ertaş'tır. Küçük yaşta bağlama çalmayı ve türkü söylemeyi öğrenmiş, çocukluk yıllarında babasıyla birlikte düğünlerde ve köylerde müzik yaparak sanat hayatına adım atmıştır.</p>
+                <p>1950'li yıllarda İstanbul'a giderek plaklar doldurmuş ve radyolarda türküler söylemiştir. Özellikle "Garip" mahlasını kullanarak yazdığı ve seslendirdiği türkülerde halkın acılarını, aşklarını, yalnızlık ve yoksulluk gibi duygularını içten ve yalın bir dille dile getirmiştir.</p>
+                <p>Neşet Ertaş'ın halk arasında çok sevilen bazı eserleri şunlardır:</p>
+                Gönül Dağı<br>
+                Ah Yalan Dünya<br>
+                Zahidem<br>
+                Yazımı Kışa Çevirdin<br>
+                Neredesin Sen<br>
+                Kendim Ettim Kendim Buldum<br>
+                Gel Gayri Gel<br>
+                <p>Bir dönem hastalığı nedeniyle sahnelerden uzak kalmış ve Almanya'da işçi olarak yaşamıştır. 2000'li yıllarda Türkiye'ye dönerek yeniden konserler vermeye başlamıştır. 2011 yılında UNESCO tarafından "Yaşayan İnsan Hazinesi" ilan edilmiştir.</p>
+                <p>Neşet Ertaş, 25 Eylül 2012'de İzmir'de hayatını kaybetmiş, vasiyeti üzerine Kırşehir'de toprağa verilmiştir. "Bozkırın Tezenesi" olarak anılan Ertaş, hem sözleriyle hem de sazıyla Türk halk müziğine derin izler bırakmıştır.</p>
+            `;
+        }
+        // Aşık Veysel için detay
+        else if(ad === 'Aşık Veysel') {
+            document.getElementById('sanatciResim').src = 'images/veyselfoto.png';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Aşık Veysel, 1894 yılında Sivas'ın Şarkışla ilçesine bağlı Sivrialan köyünde doğmuştur. Gerçek adı Veysel Şatıroğlu'dur. Yedi yaşında geçirdiği çiçek hastalığı sonucu iki gözünü de kaybetmiştir. Hayatının büyük bölümünü köyünde geçiren Veysel, babasının hediye ettiği bağlama ile müziğe yönelmiş ve zamanla Anadolu'nun en önemli halk ozanlarından biri olmuştur.</p>
+                <p>Şiirlerinde insan sevgisi, doğa, yaşam, ölüm ve toplumsal konuları işlemiş; sade ve içten bir dil kullanmıştır. Eserleriyle hem Türkiye'de hem de dünyada büyük takdir toplamıştır.</p>
+                <p>Aşık Veysel'in en bilinen eserlerinden bazıları şunlardır:</p>
+                Kara Toprak<br>
+                Uzun İnce Bir Yoldayım<br>
+                Dostlar Beni Hatırlasın<br>
+                Çiçekler Ekiliyor<br>
+                Beni Hor Görme Kardeşim<br>
+                Güzelliğin On Para Etmez<br>
+                Derdimi Dökersem Derin Dereye<br>
+                <p>1973 yılında vefat eden Aşık Veysel, Türk halk edebiyatının ve müziğinin unutulmaz isimlerinden biri olarak anılmaktadır.</p>
+            `;
+        }
+        else if(ad === 'Ali Ekber Çiçek') {
+            document.getElementById('sanatciResim').src = 'images/aliekberfoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Ali Ekber Çiçek, 1935 yılında Erzincan'ın Ulalar köyünde doğmuştur. Türk halk müziğinin önemli sanatçılarından biri olan Çiçek, özellikle bağlama çalış tekniği ve sesiyle tanınmıştır.</p>
+                <p>Küçük yaşlarda bağlama çalmaya başlayan Ali Ekber Çiçek, TRT İstanbul Radyosu'nda uzun yıllar çalışmış ve birçok türküyü derleyip yorumlamıştır. Özellikle "Haydar Haydar" türküsüyle tanınmıştır.</p>
+                <p>Ali Ekber Çiçek'in en bilinen eserlerinden bazıları:</p>
+                Haydar Haydar<br>
+                Gönül Gel Seninle Muhabbet Edelim<br>
+                Derdim Çoktur Hangisine Yanayım<br>
+                Gurbet Elde Bir Hal Geldi Başıma<br>
+                <p>2006 yılında İstanbul'da vefat eden Ali Ekber Çiçek, Türk halk müziğine yaptığı katkılarla unutulmaz isimler arasında yerini almıştır.</p>
+            `;
+        }
+        else if(ad === 'Musa Eroğlu') {
+            document.getElementById('sanatciResim').src = 'images/musaeroglufoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Musa Eroğlu, 1944 yılında Mersin'in Mut ilçesinde doğmuştur. Türk halk müziğinin önemli temsilcilerinden biri olan Eroğlu, küçük yaşlarda bağlama çalmaya başlamış ve müzikle iç içe büyümüştür.</p>
+                <p>Bağlama virtüözü ve besteci olarak tanınan Musa Eroğlu, hem derlemeleri hem de kendi eserleriyle halk müziğine büyük katkı sağlamıştır. "Mihriban", "Yolun Sonu Görünüyor", "Halil İbrahim", "Açıl Susam Açıl" gibi eserleriyle geniş kitlelere ulaşmıştır.</p>
+                <p>TRT repertuvarına birçok türkü kazandıran sanatçı, Arif Sağ ve Muhlis Akarsu gibi ustalarla da birlikte çalışmıştır. Anadolu'nun kültürel zenginliğini ve insan hikâyelerini eserlerinde yansıtmıştır.</p>
+                <p>Musa Eroğlu'nun en bilinen eserlerinden bazıları:</p>
+                Mihriban<br>
+                Yolun Sonu Görünüyor<br>
+                Halil İbrahim<br>
+                Açıl Susam Açıl<br>
+                Turnalar<br>
+                <p>Sanatçı, halen aktif olarak müzik hayatına devam etmektedir ve Türk halk müziğinin yaşayan efsanelerindendir.</p>
+            `;
+        }
+        else if(ad === 'Arif Sağ') {
+            document.getElementById('sanatciResim').src = 'images/arifsagfoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Arif Sağ, 1945 yılında Erzurum'un Aşkale ilçesinde doğmuştur. Türk halk müziğinin en önemli temsilcilerinden biri olan Arif Sağ, küçük yaşlarda bağlama çalmaya başlamış ve müzik eğitimini İstanbul Belediye Konservatuvarı'nda tamamlamıştır.</p>
+                <p>Bağlama virtüözü, besteci, derlemeci ve eğitmen olarak tanınan Arif Sağ, hem solo çalışmaları hem de birçok sanatçıyla yaptığı işbirlikleriyle halk müziğine büyük katkı sağlamıştır. "İnsan Olmaya Geldim", "Darıldın mı Cicim Bana", "Yarim Senden Ayrılalı", "Gafil Gezme Şaşkın" gibi eserleriyle geniş kitlelere ulaşmıştır.</p>
+                <p>TRT İstanbul Radyosu'nda uzun yıllar görev yapan Arif Sağ, Türkiye'nin dört bir yanından derlediği türkülerle halk müziği repertuvarını zenginleştirmiştir. Ayrıca, birçok öğrenci yetiştirerek halk müziğinin gelecek nesillere aktarılmasında önemli rol oynamıştır.</p>
+                <p>Arif Sağ'ın en bilinen eserlerinden bazıları:</p>
+                İnsan Olmaya Geldim<br>
+                Darıldın mı Cicim Bana<br>
+                Yarim Senden Ayrılalı<br>
+                Gafil Gezme Şaşkın<br>
+                Kara Toprak<br>
+                <p>Sanatçı, halen aktif olarak müzik hayatına devam etmektedir ve Türk halk müziğinin yaşayan efsanelerindendir.</p>
+            `;
+        }
+        else if(ad === 'Engin Nurşani') {
+            document.getElementById('sanatciResim').src = 'images/enginnursanifoto.jpeg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Engin Nurşani, 9 Ocak 1984'te Almanya'nın Krefeld kentinde doğmuştur. Aslen Sivaslı olan Engin Nurşani, ünlü halk ozanı Ali Nurşani'nin oğludur. Küçük yaşlardan itibaren müzikle iç içe büyümüş, babasının izinden giderek bağlama çalmayı ve türkü söylemeyi öğrenmiştir.</p>
+                <p>2003 yılında ilk albümünü çıkaran Engin Nurşani, kısa sürede kendine özgü yorumu ve sesiyle geniş bir dinleyici kitlesine ulaşmıştır. "Gözün Aydın", "Yalan Dünya", "Gel Yanıma", "Hüznün Gemileri" gibi eserleriyle tanınmıştır.</p>
+                <p>Genç yaşta yakalandığı hastalık nedeniyle uzun süre tedavi gören sanatçı, 25 Aralık 2020'de hayatını kaybetmiştir. Engin Nurşani, genç yaşına rağmen Türk halk müziğine önemli katkılar sağlamış ve unutulmaz eserler bırakmıştır.</p>
+                <p>Engin Nurşani'nin en bilinen eserlerinden bazıları:</p>
+                Gözün Aydın<br>
+                Yalan Dünya<br>
+                Gel Yanıma<br>
+                Hüznün Gemileri<br>
+                Yaram Derin<br>
+                <p>Sanatçının eserleri, sevenleri tarafından her zaman yaşatılacaktır.</p>
+            `;
+        }
+        else if(ad === 'Erdal Erzincan') {
+            document.getElementById('sanatciResim').src = 'images/erdalerzincanfoto.jpeg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Erdal Erzincan, 1971 yılında Erzurum'da doğmuştur. Türk halk müziğinin ve çağdaş bağlama ekolünün önemli temsilcilerindendir. Küçük yaşlarda bağlama çalmaya başlamış, İstanbul Teknik Üniversitesi Türk Musikisi Devlet Konservatuvarı'nda eğitim almıştır.</p>
+                <p>Bağlama virtüözü ve besteci olarak tanınan Erdal Erzincan, solo albümlerinin yanı sıra Arif Sağ ve birçok usta sanatçıyla ortak projelere imza atmıştır. "Garip", "Ağla Sazım", "Turnalar", "Kalk Gidelim" gibi eserleriyle tanınır.</p>
+                <p>Bağlama için geliştirdiği teknikler ve çok telli bağlama düzeniyle, enstrümana yeni bir soluk getirmiştir. Hem geleneksel hem de yenilikçi çalışmalarıyla halk müziğine katkı sağlamıştır.</p>
+                <p>Erdal Erzincan'ın en bilinen eserlerinden bazıları:</p>
+                Garip<br>
+                Ağla Sazım<br>
+                Turnalar<br>
+                Kalk Gidelim<br>
+                Gül Yüzlü Sevdiğim<br>
+                <p>Sanatçı, halen aktif olarak müzik hayatına devam etmektedir ve genç kuşaklara ilham vermektedir.</p>
+            `;
+        }
+        else if(ad === 'Mahzuni Şerif') {
+            document.getElementById('sanatciResim').src = 'images/mahzunifoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Mahzuni Şerif, 1940 yılında Kahramanmaraş'ın Afşin ilçesine bağlı Berçenek köyünde doğmuştur. Asıl adı Şerif Cırık'tır. Türk halk müziğinin ve âşık geleneğinin en önemli temsilcilerindendir.</p>
+                <p>Küçük yaşlarda bağlama çalmaya başlayan Mahzuni Şerif, toplumsal olaylara duyarlılığı ve halkın sorunlarını dile getiren eserleriyle tanınmıştır. "Dom Dom Kurşunu", "Yuh Yuh", "İşte Gidiyorum Çeşmi Siyahım", "Merdo", "Yalan Dünya" gibi eserleriyle geniş kitlelere ulaşmıştır.</p>
+                <p>Mahzuni Şerif, eserlerinde toplumsal eleştiri, aşk, yoksulluk, göç ve siyasi konuları işlemiştir. 453 plak, 50 kaset ve 9 kitap yayımlamış, Türkiye'nin dört bir yanında konserler vermiştir. 2002 yılında Almanya'da vefat etmiştir.</p>
+                <p>Mahzuni Şerif'in en bilinen eserlerinden bazıları:</p>
+                Dom Dom Kurşunu<br>
+                Yuh Yuh<br>
+                İşte Gidiyorum Çeşmi Siyahım<br>
+                Merdo<br>
+                Yalan Dünya<br>
+                <p>Mahzuni Şerif, halk müziğine ve âşık geleneğine yaptığı katkılarla unutulmaz isimler arasında yerini almıştır.</p>
+            `;
+        }
+        else if(ad === 'Muhlis Akarsu') {
+            document.getElementById('sanatciResim').src = 'images/akarsufoto.png';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Muhlis Akarsu, 1948 yılında Sivas'ın Kangal ilçesine bağlı Minarekaya köyünde doğmuştur. Türk halk müziğinin önemli temsilcilerinden biri olan Akarsu, küçük yaşlarda bağlama çalmaya başlamış ve genç yaşta müzik dünyasına adım atmıştır.</p>
+                <p>Derlemeci, besteci ve yorumcu olarak tanınan Muhlis Akarsu, "Dostum Dostum", "Güvercin Uçuverdi", "Yarim Senden Ayrılalı", "Ceylan" gibi eserleriyle geniş kitlelere ulaşmıştır. Halkın duygularını ve toplumsal olayları eserlerinde işlemiştir.</p>
+                <p>2 Temmuz 1993'te Sivas Madımak Oteli'nde yaşanan acı olayda hayatını kaybeden Muhlis Akarsu, halk müziğine ve Anadolu kültürüne yaptığı katkılarla unutulmaz isimler arasında yerini almıştır.</p>
+                <p>Muhlis Akarsu'nun en bilinen eserlerinden bazıları:</p>
+                Dostum Dostum<br>
+                Güvercin Uçuverdi<br>
+                Yarim Senden Ayrılalı<br>
+                Ceylan<br>
+                Deli Gönül Gezer Gezer Gelir<br>
+                <p>Sanatçının eserleri, sevenleri tarafından her zaman yaşatılacaktır.</p>
+            `;
+        }
+        else if(ad === 'Mehmet Erenler') {
+            document.getElementById('sanatciResim').src = 'images/erenlerfoto.jpg';
+            document.getElementById('sanatciBilgi').innerHTML = `
+                <p>Mehmet Erenler, 26 Ocak 1946'da Ankara'nın Ayaş ilçesinde doğmuştur. Küçük yaşlarda bağlamaya ilgi duymaya başlamış, 8 yaşında kendi kendine bağlama çalmayı öğrenmiştir. Henüz 13 yaşındayken TRT Ankara Radyosu'nun "Yurttan Sesler" programına konuk olmuştur. 1966 yılında TRT'nin açtığı sınavı kazanarak Ankara Radyosu'nda bağlama sanatçısı olarak göreve başlamıştır.</p>
+                <p>Daha sonra İstanbul Devlet Konservatuvarı'nda öğretim üyeliği yapmış ve 1980 yılında TRT İstanbul Radyosu'na atanmıştır. Burada hem sanatçı hem de koro şefi olarak çalışmıştır. Özellikle "açış" adı verilen serbest ölçülü doğaçlama çalış geleneğindeki ustalığıyla tanınır. Kendine özgü icra tarzı, teknik hâkimiyeti ve yorum gücüyle Türk halk müziğinde önemli bir ekol olmuştur.</p>
+                <p>Mehmet Erenler, bugüne kadar 20'den fazla albüm hazırlamış ve birçok türkü derleyip yorumlamıştır. Hâlen TRT İstanbul Radyosu'nda sanatçı olarak görev yapmaktadır.</p>
+            `;
+        }
+    }
+    </script>
+</body>
+</html> 
