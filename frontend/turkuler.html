@@ -96,7 +96,7 @@
                 turkulerList.innerHTML = '';
 
                 turkuler.forEach(turku => {
-                    if (turku.id === 16 || turku.id === 18 || turku.id === 19 || turku.id === 21 || turku.id === 22 || turku.id === 25 || turku.id === 26 || turku.id === 27 || turku.id === 28 || turku.id === 29) {
+                    if (turku.id === 16 || turku.id === 18 || turku.id === 19 || turku.id === 21 || turku.id === 22 || turku.id === 25 || turku.id === 26 || turku.id === 27 || turku.id === 28 || turku.id === 29 || turku.id === 30 || turku.id === 31) {
                         // Türkü başlığından id oluştur
                         const turkuId = turku.title.toLowerCase().replace(/[^a-zçğıöşü0-9\s-]/g, '').replace(/\s+/g, '-');
                         const turkuCard = `
@@ -105,8 +105,8 @@
                                     <div class="card-body">
                                         <a href="turku.html?id=${turku.id}" style="text-decoration:none; color:inherit;">
                                             <h5 class="card-title" id="${turkuId}" style="cursor:pointer;">
-                                                ${turku.title}
-                                            </h5>
+                                            ${turku.title}
+                                        </h5>
                                         </a>
                                         <div class="nota-container" style="display:none;">
                                             <div class="nota-text-block">

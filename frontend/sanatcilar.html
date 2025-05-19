@@ -60,7 +60,9 @@
         { ad: "Erdal Erzincan", resim: "images/erdalerzincanfoto.jpeg" },
         { ad: "Mahzuni Şerif", resim: "images/mahzunifoto.jpg" },
         { ad: "Muhlis Akarsu", resim: "images/akarsufoto.png" },
-        { ad: "Mehmet Erenler", resim: "images/erenlerfoto.jpg" }
+        { ad: "Mehmet Erenler", resim: "images/erenlerfoto.jpg" },
+        { ad: "Mehmet Nacak", resim: "images/mehmetnfoto.png" },
+        { ad: "Akif Çekirge", resim: "images/cekirgefoto.png" }
     ];
 
     function sanatcilariGoster(liste) {
@@ -117,6 +119,16 @@
             ) {
                 container.innerHTML += `
                     <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Mehmet%20Erenler\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Mehmet Nacak"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Mehmet%20Nacak\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
+            } else if (
+                sanatci.ad === "Akif Çekirge"
+            ) {
+                container.innerHTML += `
+                    <div class=\"col-md-12 mb-4\">\n                        <a href=\"sanatci.html?ad=Akif%20Çekirge\" style=\"text-decoration:none; color:inherit;\">\n                            <div class=\"card h-100\" style=\"display: flex; flex-direction: row; align-items: center; padding: 16px;\">\n                                <img src=\"${sanatci.resim}\" class=\"card-img-top\" alt=\"${sanatci.ad}\" style=\"width: 110px; height: auto; object-fit: cover; margin-right: 20px;\">\n                                <div class=\"card-body\" style=\"flex:1; padding: 0.5rem 1rem;\">\n                                    <h3 style=\"font-size: 1.7rem; font-weight: bold; color: #1a2634; margin: 0;\">${sanatci.ad}</h3>\n                                </div>\n                            </div>\n                        </a>\n                    </div>\n                `;
             } else {
                 container.innerHTML += `
                     <div class="col-md-4 mb-4">
@@ -143,4 +155,4 @@
     });
     </script>
 </body>
-</html> 
+</html>
